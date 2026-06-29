@@ -27,11 +27,11 @@ dependencies:
   # PDF Generation & Sharing
   pdf: ^3.10.7
   printing: ^5.11.1
-  share_plus: ^9.0.0
+  share_plus: ^12.0.0
   path_provider: ^2.1.2
 
   # File Import (Excel / CSV Roster Parsing)
-  file_picker: ^8.0.0
+  file_picker: ^8.0.7
   excel: ^3.0.0
   csv: ^6.0.0
 

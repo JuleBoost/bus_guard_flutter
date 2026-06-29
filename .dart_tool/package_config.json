@@ -164,6 +164,18 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "device_info_plus",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/device_info_plus-12.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.7"
+    },
+    {
+      "name": "device_info_plus_platform_interface",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/device_info_plus_platform_interface-7.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "3.7"
+    },
+    {
       "name": "equatable",
       "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/equatable-2.0.8",
       "packageUri": "lib/",
@@ -195,9 +207,9 @@
     },
     {
       "name": "file_picker",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/file_picker-8.0.7",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/file_picker-8.3.7",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.4"
     },
     {
       "name": "fixnum",
@@ -249,9 +261,9 @@
     },
     {
       "name": "functions_client",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/functions_client-2.6.0",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/functions_client-2.6.1",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.4"
     },
     {
       "name": "geocoding",
@@ -321,9 +333,9 @@
     },
     {
       "name": "gotrue",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/gotrue-2.21.0",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/gotrue-2.22.0",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.4"
     },
     {
       "name": "gtk",
@@ -372,6 +384,12 @@
       "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/jni_flutter-1.0.1",
       "packageUri": "lib/",
       "languageVersion": "3.3"
+    },
+    {
+      "name": "json_annotation",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/json_annotation-4.12.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.9"
     },
     {
       "name": "jwt_decode",
@@ -453,7 +471,7 @@
     },
     {
       "name": "mime",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/mime-1.0.6",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/mime-2.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -468,6 +486,60 @@
       "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/package_config-2.2.0",
       "packageUri": "lib/",
       "languageVersion": "3.4"
+    },
+    {
+      "name": "package_info_plus",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/package_info_plus-9.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
+      "name": "package_info_plus_platform_interface",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/package_info_plus_platform_interface-3.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "passkeys",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/passkeys-2.20.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
+      "name": "passkeys_android",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/passkeys_android-2.12.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "passkeys_darwin",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/passkeys_darwin-0.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "passkeys_doctor",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/passkeys_doctor-1.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "passkeys_platform_interface",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/passkeys_platform_interface-2.6.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "passkeys_web",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/passkeys_web-2.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
+      "name": "passkeys_windows",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/passkeys_windows-0.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "path",
@@ -561,13 +633,13 @@
     },
     {
       "name": "postgrest",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/postgrest-2.7.1",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/postgrest-2.7.2",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.4"
     },
     {
       "name": "printing",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/printing-5.13.1",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/printing-5.14.3",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -591,9 +663,9 @@
     },
     {
       "name": "realtime_client",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/realtime_client-2.7.4",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/realtime_client-2.8.0",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.4"
     },
     {
       "name": "record_use",
@@ -615,13 +687,13 @@
     },
     {
       "name": "share_plus",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-9.0.0",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus-12.0.2",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.4"
     },
     {
       "name": "share_plus_platform_interface",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus_platform_interface-4.0.0",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/share_plus_platform_interface-6.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -687,9 +759,9 @@
     },
     {
       "name": "storage_client",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/storage_client-2.5.6",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/storage_client-2.5.7",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.4"
     },
     {
       "name": "stream_channel",
@@ -705,15 +777,15 @@
     },
     {
       "name": "supabase",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/supabase-2.12.2",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/supabase-2.13.0",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.4"
     },
     {
       "name": "supabase_flutter",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/supabase_flutter-2.14.2",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/supabase_flutter-2.15.0",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.4"
     },
     {
       "name": "synchronized",
@@ -738,6 +810,12 @@
       "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/typed_data-1.4.0",
       "packageUri": "lib/",
       "languageVersion": "3.5"
+    },
+    {
+      "name": "ua_client_hints",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/ua_client_hints-1.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
     },
     {
       "name": "unicode",
@@ -813,9 +891,9 @@
     },
     {
       "name": "web",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/web-0.5.1",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/web-1.1.1",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.4"
     },
     {
       "name": "web_socket",
@@ -834,6 +912,12 @@
       "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/win32-5.15.0",
       "packageUri": "lib/",
       "languageVersion": "3.8"
+    },
+    {
+      "name": "win32_registry",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/win32_registry-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.7"
     },
     {
       "name": "wkt_parser",
@@ -861,9 +945,9 @@
     },
     {
       "name": "yet_another_json_isolate",
-      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/yet_another_json_isolate-2.1.0",
+      "rootUri": "file:///C:/Users/juleb/AppData/Local/Pub/Cache/hosted/pub.dev/yet_another_json_isolate-2.1.1",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.4"
     },
     {
       "name": "bus_guard_flutter",
