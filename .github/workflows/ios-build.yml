@@ -1,0 +1,40 @@
+name: Build iOS IPA
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Flutter (Native M-Series)
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          architecture: arm64
+
+      - name: Ensure Native iOS/Android Project Structure
+        run: flutter create . --org com.busguard.app
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Build iOS (No Codesign)
+        run: flutter build ios --release --no-codesign
+
+      - name: Create IPA Payload
+        run: |
+          mkdir -p Payload
+          mv build/ios/iphoneos/Runner.app Payload
+          zip -r bus_guard_ai.ipa Payload
+
+      - name: Upload IPA Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bus-guard-ai-ios-ipa
+          path: bus_guard_ai.ipa

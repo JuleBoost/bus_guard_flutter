@@ -1,0 +1,53 @@
+name: bus_guard_flutter
+description: BusGuard AI — School Bus Safety System & Realtime Memphis Web/iOS/Android App
+version: 1.0.0+1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Core Supabase & Backend Telemetry
+  supabase_flutter: ^2.0.2
+  shared_preferences: ^2.2.0
+  http: ^1.1.2
+
+  # Maps & Navigation (OpenStreetMap & GPS)
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
+  geolocator: ^11.0.0
+  geocoding: ^3.0.0
+
+  # Charts & Visualization
+  fl_chart: ^0.66.0
+
+  # PDF Generation & Sharing
+  pdf: ^3.10.7
+  printing: ^5.11.1
+  share_plus: ^9.0.0
+  path_provider: ^2.1.2
+
+  # File Import (Excel / CSV Roster Parsing)
+  file_picker: ^8.0.0
+  excel: ^3.0.0
+  csv: ^6.0.0
+
+  # Styling & UI Utilities
+  google_fonts: ^6.1.0
+  intl: ^0.19.0
+  cupertino_icons: ^1.0.6
+  audioplayers: ^6.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    # Retained for compatibility with user's SFX feature
+    - assets/loading.mp3
