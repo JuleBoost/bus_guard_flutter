@@ -110,7 +110,8 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             children: [
               Text('🚌', style: TextStyle(fontSize: 24)),
               SizedBox(width: 8),
-              Text('BUSGUARD AI', style: TextStyle(fontWeight: FontWeight.w900, tracking: -0.5)),
+              // FIX: tracking → letterSpacing
+              Text('BUSGUARD AI', style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: -0.5)),
             ],
           ),
           actions: [

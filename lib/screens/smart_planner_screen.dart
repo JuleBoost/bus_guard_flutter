@@ -1,9 +1,11 @@
 import 'dart:io';
+import 'dart:math'; // FIX: added for Random
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:excel/excel.dart';
+// FIX: alias for excel to avoid Border conflict
+import 'package:excel/excel.dart' as excel;
 import 'package:csv/csv.dart';
 import '../services/supabase_service.dart';
 import '../theme/memphis_theme.dart';
@@ -61,8 +63,10 @@ class _SmartPlannerScreenState extends State<SmartPlannerScreen> {
         List<Map<String, dynamic>> imported = [];
 
         if (path.endsWith('.csv')) {
-          final input = File(path).openRead();
-          final fields = await input.transform(const CsvToListConverter()).toList();
+          // FIX: read file as string and use convert method
+          final csvString = await File(path).readAsString();
+          final converter = const CsvToListConverter();
+          final fields = converter.convert(csvString);
           if (fields.length > 1) {
             for (int i = 1; i < fields.length; i++) {
               final row = fields[i];
@@ -76,9 +80,9 @@ class _SmartPlannerScreenState extends State<SmartPlannerScreen> {
           }
         } else {
           var bytes = File(path).readAsBytesSync();
-          var excel = Excel.decodeBytes(bytes);
-          for (var table in excel.tables.keys) {
-            var sheet = excel.tables[table]!;
+          var excelFile = excel.Excel.decodeBytes(bytes); // use alias
+          for (var table in excelFile.tables.keys) {
+            var sheet = excelFile.tables[table]!;
             for (int i = 1; i < sheet.rows.length; i++) {
               var row = sheet.rows[i];
               imported.add({

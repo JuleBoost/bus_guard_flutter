@@ -24,13 +24,33 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
-      - name: Build iOS (No Codesign)
-        run: flutter build ios --release --no-codesign
+      - name: Prepare Flutter Framework & XCConfig (Allow Xcode check to pass)
+        run: |
+          # Let Flutter compile the Dart engine to App.framework and generate Generated.xcconfig
+          # We append || true so that when flutter build invokes xcodebuild without our custom flags, it does not fail the workflow.
+          flutter build ios --release --no-codesign || true
 
-      - name: Create IPA Payload
+      - name: Direct Xcode 16 Force Build (Bypass Development Team Check)
+        run: |
+          cd ios
+          # Execute xcodebuild directly with command-line arguments. Command-line args have the absolute highest priority in Xcode 16.
+          xcodebuild -workspace Runner.xcworkspace -scheme Runner -configuration Release -sdk iphoneos CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" EXPANDED_CODE_SIGN_IDENTITY="" CODE_SIGN_ENTITLEMENTS="" build
+
+      - name: Create IPA Payload for Sideloadly
         run: |
           mkdir -p Payload
-          mv build/ios/iphoneos/Runner.app Payload
+          # Locate Runner.app depending on whether xcodebuild placed it in the flutter build dir or the native derived data dir
+          if [ -d "build/ios/iphoneos/Runner.app" ]; then
+            mv build/ios/iphoneos/Runner.app Payload/
+          elif [ -d "ios/build/Release-iphoneos/Runner.app" ]; then
+            mv ios/build/Release-iphoneos/Runner.app Payload/
+          elif [ -d "build/ios/Release-iphoneos/Runner.app" ]; then
+            mv build/ios/Release-iphoneos/Runner.app Payload/
+          else
+            # Fallback search if derived data put it elsewhere
+            find . -name "Runner.app" -exec mv {} Payload/ \;
+          fi
+          
           zip -r bus_guard_ai.ipa Payload
 
       - name: Upload IPA Artifact

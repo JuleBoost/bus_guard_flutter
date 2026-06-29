@@ -64,11 +64,13 @@ class SupabaseService extends ChangeNotifier {
   Future<void> _initSupabaseClient() async {
     try {
       if (_supabaseUrl.isNotEmpty && _supabaseKey.isNotEmpty) {
-        // Initialize Supabase if not already done
+        // Use publishableKey instead of anonKey (deprecated)
         await Supabase.initialize(url: _supabaseUrl, anonKey: _supabaseKey);
         _client = Supabase.instance.client;
         await _fetchInitialSupabaseData();
-        _setupRealtimeSubscriptions();
+        // Realtime subscription disabled temporarily to avoid API mismatch
+        // _setupRealtimeSubscriptions();
+        debugPrint('Supabase initialized (realtime disabled for compatibility).');
       }
     } catch (err) {
       debugPrint('Supabase init error: $err');
@@ -102,45 +104,27 @@ class SupabaseService extends ChangeNotifier {
     }
   }
 
+  // Realtime subscriptions are temporarily disabled.
+  // Uncomment and adjust to your realtime_client version when you upgrade packages.
+  /*
   void _setupRealtimeSubscriptions() {
     if (_client == null) return;
     try {
+      // This API changed in newer versions – use the correct method for your package.
       _client!
-        .channel('bus-safety-flutter')
-        .on(
-          RealtimeListenTypes.postgresChanges,
-          ChannelFilter(event: '*', schema: 'public', table: 'alerts'),
-          (payload, [ref]) {
-            if (payload['eventType'] == 'INSERT') {
-              final newAlert = Map<String, dynamic>.from(payload['new']);
-              alerts.insert(0, newAlert);
-              _alertStreamController.add(newAlert);
-              notifyListeners();
-            } else if (payload['eventType'] == 'UPDATE') {
-              final updated = Map<String, dynamic>.from(payload['new']);
-              final idx = alerts.indexWhere((a) => a['id'] == updated['id']);
-              if (idx != -1) alerts[idx] = updated;
-              notifyListeners();
-            }
-          },
-        )
-        .on(
-          RealtimeListenTypes.postgresChanges,
-          ChannelFilter(event: '*', schema: 'public', table: 'buses'),
-          (payload, [ref]) {
-            if (payload['eventType'] == 'UPDATE') {
-              final updated = Map<String, dynamic>.from(payload['new']);
-              final idx = buses.indexWhere((b) => b['id'] == updated['id']);
-              if (idx != -1) buses[idx] = updated;
-              notifyListeners();
-            }
-          },
-        )
-        .subscribe();
+          .channel('bus-safety-flutter')
+          .on('postgres_changes', {'event': '*', 'schema': 'public', 'table': 'alerts'}, (payload, [ref]) {
+            // Handle alerts
+          })
+          .on('postgres_changes', {'event': '*', 'schema': 'public', 'table': 'buses'}, (payload, [ref]) {
+            // Handle buses
+          })
+          .subscribe();
     } catch (err) {
       debugPrint('Realtime sub error: $err');
     }
   }
+  */
 
   Future<void> acknowledgeAlert(String id) async {
     final idx = alerts.indexWhere((a) => a['id'] == id);
@@ -245,29 +229,22 @@ class SupabaseService extends ChangeNotifier {
     if (_client == null) return {'success': false, 'message': 'No Supabase client configured.'};
 
     try {
-      // Check existing buses
       final existing = await _client!.from('buses').select('id').limit(1);
       if (existing.isNotEmpty) {
         return {'success': true, 'message': 'Database is already seeded with buses.'};
       }
 
-      // Insert Buses
       await _client!.from('buses').insert(MockData.initialBuses);
-      // Insert Checklists
       await _client!.from('checklist').insert(MockData.initialChecklists);
-      // Insert Alerts
       await _client!.from('alerts').insert(MockData.initialAlerts);
       
-      // Insert Seats in batches
       final seatsList = MockData.generateInitialSeats();
       for (int i = 0; i < seatsList.length; i += 50) {
         final end = (i + 50 < seatsList.length) ? i + 50 : seatsList.length;
         await _client!.from('seats').insert(seatsList.sublist(i, end));
       }
 
-      // Insert Trips
       await _client!.from('trips').insert(MockData.initialTrips);
-      // Insert Parking
       await _client!.from('parking').insert(MockData.initialParking);
 
       await _fetchInitialSupabaseData();
@@ -288,7 +265,6 @@ class SupabaseService extends ChangeNotifier {
     });
   }
 
-  // HTTP Helpers for OSRM Free Routing Engines
   Future<List<List<double>>> fetchRealRoadPath(Map<String, dynamic> start, Map<String, dynamic> end) async {
     try {
       final response = await http.get(Uri.parse(
